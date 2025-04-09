@@ -6,10 +6,11 @@ import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { ModeToggle } from './components/mode-toggle';
 import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
-import { RocketIcon, FileTextIcon, StarIcon, UsersIcon, PlayIcon, CoinsIcon, ClockIcon } from 'lucide-react';
+import { RocketIcon, FileTextIcon, StarIcon, UsersIcon, PlayIcon, CoinsIcon, ClockIcon , MessageSquareIcon, TrendingUpIcon } from 'lucide-react';
 import { useRef } from 'react';
 import { FeatureCard } from './components/FeaturedCard';
 import { useTheme } from 'next-themes';
+import Link from 'next/link';
 
 const costData = [
 	{ month: 'Jan', traditional: 8500, expertround: 4200 },
@@ -33,33 +34,16 @@ export default function HomePage() {
 			<nav className="fixed w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
 				<div className="container flex h-16 items-center justify-between">
 					<h1 className="text-2xl font-bold flex items-center gap-2">
-						<ExpertRoundLogo className="h-8 w-8 text-primary" />
+						{/* <ExpertRoundLogo  /> */}
 						expertRound
 					</h1>
 					<div className="flex items-center gap-4">
 						<ModeToggle />
-						<Dialog>
-							<DialogTrigger asChild>
-								<Button variant="default" size="lg">
-									Book Demo
+						<Link href="/joinwaitlist">
+								<Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+									Join Waitlist
 								</Button>
-							</DialogTrigger>
-							<DialogContent>
-								<div className="space-y-4">
-									<h3 className="text-2xl font-bold">Schedule a Demo</h3>
-									<form className="space-y-4">
-										<input
-											type="email"
-											placeholder="Work email"
-											className="w-full px-4 py-2 rounded border"
-										/>
-										<Button type="submit" className="w-full">
-											Book Now
-										</Button>
-									</form>
-								</div>
-							</DialogContent>
-						</Dialog>
+								</Link>
 					</div>
 				</div>
 			</nav>
@@ -183,21 +167,111 @@ export default function HomePage() {
 			<section className="py-20">
 				<div className="container">
 					<h2 className="text-4xl font-bold text-center mb-16">Platform Features</h2>
-					<div className="grid md:grid-cols-3 gap-8">
-						<FeatureCard
-							icon={<FileTextIcon className="h-8 w-8" />}
-							title="JD-Based Interviews"
-							description="AI generates tailored questions based on job description and candidate CV"
-							svg={<AnimatedProcess className="w-full h-48" />}
-						/>
-						{/* Add other feature cards */}
+					
+					<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+					
+					<FeatureCard
+						icon={<FileTextIcon className="h-8 w-8" />}
+						title="JD-Based Interviews"
+						description="AI generates tailored questions based on job description and candidate CV"
+						svg={<AnimatedProcess className="w-full h-48" />}
+					/>
+					
+					{/* New: AI Resume Screening */}
+					<FeatureCard
+						icon={<UsersIcon className="h-8 w-8" />}
+						title="AI Resume Screening"
+						description="Automatically analyzes and shortlists candidates based on job requirements"
+						svg={
+						<svg viewBox="0 0 500 200" className="w-full h-48">
+							<motion.path
+							d="M50 150 L150 50 L250 150 L350 50 L450 150"
+							stroke="currentColor"
+							strokeWidth="2"
+							fill="none"
+							initial={{ pathLength: 0 }}
+							whileInView={{ pathLength: 1 }}
+							transition={{ duration: 2 }}
+							/>
+							<motion.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+							<rect x="30" y="130" width="40" height="40" fill="currentColor" opacity="0.2" />
+							<rect x="130" y="30" width="40" height="40" fill="currentColor" opacity="0.4" />
+							<rect x="230" y="130" width="40" height="40" fill="currentColor" opacity="0.6" />
+							<rect x="330" y="30" width="40" height="40" fill="currentColor" opacity="0.8" />
+							<rect x="430" y="130" width="40" height="40" fill="currentColor" />
+							</motion.g>
+						</svg>
+						}
+					/>
+					
+					{/* AI Chatbot */}
+					<FeatureCard
+						icon={<MessageSquareIcon className="h-8 w-8" />} 
+						title="AI Chatbot"
+						description="Handles employee onboarding and HR inquiries 24/7 with natural conversations"
+						svg={
+						<svg viewBox="0 0 500 200" className="w-full h-48">
+							<motion.path
+							d="M50 100 Q150 20 250 100 Q350 180 450 100"
+							stroke="currentColor"
+							strokeWidth="2"
+							fill="none"
+							initial={{ pathLength: 0 }}
+							whileInView={{ pathLength: 1 }}
+							transition={{ duration: 2 }}
+							/>
+							<motion.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+							<circle cx="100" cy="80" r="15" fill="currentColor" />
+							<circle cx="150" cy="80" r="15" fill="currentColor" />
+							<circle cx="200" cy="80" r="15" fill="currentColor" />
+							<circle cx="250" cy="80" r="15" fill="currentColor" />
+							<circle cx="300" cy="80" r="15" fill="currentColor" />
+							<circle cx="350" cy="80" r="15" fill="currentColor" />
+							<circle cx="400" cy="80" r="15" fill="currentColor" />
+							</motion.g>
+						</svg>
+						}
+					/>
+					
+					{/*Performance Tracking */}
+					<FeatureCard
+						icon={<TrendingUpIcon className="h-8 w-8" />} 
+						title="Performance Tracking"
+						description="Predictive models identify retention risks and highlight top performers"
+						svg={
+						<svg viewBox="0 0 500 200" className="w-full h-48">
+							<motion.path
+							d="M50 150 L100 120 L150 130 L200 100 L250 80 L300 110 L350 70 L400 90 L450 50"
+							stroke="currentColor"
+							strokeWidth="2"
+							fill="none"
+							initial={{ pathLength: 0 }}
+							whileInView={{ pathLength: 1 }}
+							transition={{ duration: 2 }}
+							/>
+							<motion.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+							<circle cx="50" cy="150" r="5" fill="currentColor" />
+							<circle cx="100" cy="120" r="5" fill="currentColor" />
+							<circle cx="150" cy="130" r="5" fill="currentColor" />
+							<circle cx="200" cy="100" r="5" fill="currentColor" />
+							<circle cx="250" cy="80" r="5" fill="currentColor" />
+							<circle cx="300" cy="110" r="5" fill="currentColor" />
+							<circle cx="350" cy="70" r="5" fill="currentColor" />
+							<circle cx="400" cy="90" r="5" fill="currentColor" />
+							<circle cx="450" cy="50" r="5" fill="currentColor" />
+							</motion.g>
+						</svg>
+						}
+					/>
 					</div>
 				</div>
 			</section>
 
+			
+
 			<footer className="border-t py-8 mt-20">
 				<div className="container text-center text-sm text-muted-foreground">
-					© 2024 expertRound.com. All rights reserved.
+					© 2025 expertRound.com. All rights reserved.
 				</div>
 			</footer>
 		</div>
