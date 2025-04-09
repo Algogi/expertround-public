@@ -7,7 +7,7 @@ import { Providers } from './providers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'AIInterviewPro - Smart Hiring Platform',
+	title: 'ExpertRound - Smart Hiring Platform',
 	description: 'AI-powered interview platform with intelligent candidate matching',
 };
 
