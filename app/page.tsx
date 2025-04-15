@@ -2,14 +2,20 @@
 
 import { motion, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { ModeToggle } from './components/mode-toggle';
 import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
-import { RocketIcon, FileTextIcon, StarIcon, UsersIcon, PlayIcon, CoinsIcon, ClockIcon , MessageSquareIcon, TrendingUpIcon } from 'lucide-react';
+import {
+	RocketIcon,
+	FileTextIcon,
+	StarIcon,
+	UsersIcon,
+	CoinsIcon,
+	ClockIcon,
+	MessageSquareIcon,
+	TrendingUpIcon,
+} from 'lucide-react';
 import { useRef } from 'react';
 import { FeatureCard } from './components/FeaturedCard';
-import { useTheme } from 'next-themes';
 import Link from 'next/link';
 
 const costData = [
@@ -26,8 +32,6 @@ const hiringTimelineData = [
 ];
 
 export default function HomePage() {
-	const { resolvedTheme, setTheme } = useTheme();
-
 	return (
 		<div className="flex flex-col min-h-screen">
 			{/* Navigation */}
@@ -40,10 +44,10 @@ export default function HomePage() {
 					<div className="flex items-center gap-4">
 						<ModeToggle />
 						<Link href="/joinwaitlist">
-								<Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
-									Join Waitlist
-								</Button>
-								</Link>
+							<Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+								Join Waitlist
+							</Button>
+						</Link>
 					</div>
 				</div>
 			</nav>
@@ -67,10 +71,10 @@ export default function HomePage() {
 						<p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
 							Reduce hiring costs by 60% and time-to-hire by 75% with our AI-driven interview platform
 						</p>
-						<Button size="lg" className="text-lg gap-2">
+						{/* <Button size="lg" className="text-lg gap-2">
 							<PlayIcon className="h-5 w-5" />
 							Watch Demo
-						</Button>
+						</Button> */}
 					</motion.div>
 				</div>
 			</section>
@@ -120,7 +124,43 @@ export default function HomePage() {
 				</div>
 			</section>
 
-			{/* Demo Video Section */}
+			{/* How It Works Section */}
+			<section className="py-20">
+				<div className="container">
+					<h2 className="text-4xl font-bold text-center mb-16">How It Works</h2>
+					<div className="grid md:grid-cols-3 gap-12">
+						<div className="text-center">
+							<div className="p-6 bg-primary/10 rounded-full inline-block mb-4">
+								<RocketIcon className="h-12 w-12 text-primary" />
+							</div>
+							<h3 className="text-xl font-semibold mb-2">Step 1: Upload a Job Description</h3>
+							<p className="text-muted-foreground">
+								Define your job requirements and upload the job description to get started.
+							</p>
+						</div>
+						<div className="text-center">
+							<div className="p-6 bg-primary/10 rounded-full inline-block mb-4">
+								<FileTextIcon className="h-12 w-12 text-primary" />
+							</div>
+							<h3 className="text-xl font-semibold mb-2">Step 2: Invite Candidates</h3>
+							<p className="text-muted-foreground">
+								Send a unique AI interview link—no scheduling required.
+							</p>
+						</div>
+						<div className="text-center">
+							<div className="p-6 bg-primary/10 rounded-full inline-block mb-4">
+								<StarIcon className="h-12 w-12 text-primary" />
+							</div>
+							<h3 className="text-xl font-semibold mb-2">Step 3: Interview & Hire</h3>
+							<p className="text-muted-foreground">
+								Conduct AI-driven interviews and hire the best candidates efficiently.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			{/* Demo Video Section
 			<section className="py-20">
 				<div className="container">
 					<motion.div
@@ -138,7 +178,7 @@ export default function HomePage() {
 						<div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
 					</motion.div>
 				</div>
-			</section>
+			</section> */}
 
 			{/* Hiring Timeline Section */}
 			<section className="py-20 bg-muted/50">
@@ -167,107 +207,113 @@ export default function HomePage() {
 			<section className="py-20">
 				<div className="container">
 					<h2 className="text-4xl font-bold text-center mb-16">Platform Features</h2>
-					
+
 					<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-					
-					<FeatureCard
-						icon={<FileTextIcon className="h-8 w-8" />}
-						title="JD-Based Interviews"
-						description="AI generates tailored questions based on job description and candidate CV"
-						svg={<AnimatedProcess className="w-full h-48" />}
-					/>
-					
-					{/* New: AI Resume Screening */}
-					<FeatureCard
-						icon={<UsersIcon className="h-8 w-8" />}
-						title="AI Resume Screening"
-						description="Automatically analyzes and shortlists candidates based on job requirements"
-						svg={
-						<svg viewBox="0 0 500 200" className="w-full h-48">
-							<motion.path
-							d="M50 150 L150 50 L250 150 L350 50 L450 150"
-							stroke="currentColor"
-							strokeWidth="2"
-							fill="none"
-							initial={{ pathLength: 0 }}
-							whileInView={{ pathLength: 1 }}
-							transition={{ duration: 2 }}
-							/>
-							<motion.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-							<rect x="30" y="130" width="40" height="40" fill="currentColor" opacity="0.2" />
-							<rect x="130" y="30" width="40" height="40" fill="currentColor" opacity="0.4" />
-							<rect x="230" y="130" width="40" height="40" fill="currentColor" opacity="0.6" />
-							<rect x="330" y="30" width="40" height="40" fill="currentColor" opacity="0.8" />
-							<rect x="430" y="130" width="40" height="40" fill="currentColor" />
-							</motion.g>
-						</svg>
-						}
-					/>
-					
-					{/* AI Chatbot */}
-					<FeatureCard
-						icon={<MessageSquareIcon className="h-8 w-8" />} 
-						title="AI Chatbot"
-						description="Handles employee onboarding and HR inquiries 24/7 with natural conversations"
-						svg={
-						<svg viewBox="0 0 500 200" className="w-full h-48">
-							<motion.path
-							d="M50 100 Q150 20 250 100 Q350 180 450 100"
-							stroke="currentColor"
-							strokeWidth="2"
-							fill="none"
-							initial={{ pathLength: 0 }}
-							whileInView={{ pathLength: 1 }}
-							transition={{ duration: 2 }}
-							/>
-							<motion.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-							<circle cx="100" cy="80" r="15" fill="currentColor" />
-							<circle cx="150" cy="80" r="15" fill="currentColor" />
-							<circle cx="200" cy="80" r="15" fill="currentColor" />
-							<circle cx="250" cy="80" r="15" fill="currentColor" />
-							<circle cx="300" cy="80" r="15" fill="currentColor" />
-							<circle cx="350" cy="80" r="15" fill="currentColor" />
-							<circle cx="400" cy="80" r="15" fill="currentColor" />
-							</motion.g>
-						</svg>
-						}
-					/>
-					
-					{/*Performance Tracking */}
-					<FeatureCard
-						icon={<TrendingUpIcon className="h-8 w-8" />} 
-						title="Performance Tracking"
-						description="Predictive models identify retention risks and highlight top performers"
-						svg={
-						<svg viewBox="0 0 500 200" className="w-full h-48">
-							<motion.path
-							d="M50 150 L100 120 L150 130 L200 100 L250 80 L300 110 L350 70 L400 90 L450 50"
-							stroke="currentColor"
-							strokeWidth="2"
-							fill="none"
-							initial={{ pathLength: 0 }}
-							whileInView={{ pathLength: 1 }}
-							transition={{ duration: 2 }}
-							/>
-							<motion.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-							<circle cx="50" cy="150" r="5" fill="currentColor" />
-							<circle cx="100" cy="120" r="5" fill="currentColor" />
-							<circle cx="150" cy="130" r="5" fill="currentColor" />
-							<circle cx="200" cy="100" r="5" fill="currentColor" />
-							<circle cx="250" cy="80" r="5" fill="currentColor" />
-							<circle cx="300" cy="110" r="5" fill="currentColor" />
-							<circle cx="350" cy="70" r="5" fill="currentColor" />
-							<circle cx="400" cy="90" r="5" fill="currentColor" />
-							<circle cx="450" cy="50" r="5" fill="currentColor" />
-							</motion.g>
-						</svg>
-						}
-					/>
+						<FeatureCard
+							icon={<FileTextIcon className="h-8 w-8" />}
+							title="JD-Based Interviews"
+							description="AI generates tailored questions based on job description and candidate CV"
+							svg={<AnimatedProcess className="w-full h-48" />}
+						/>
+
+						{/* New: AI Resume Screening */}
+						<FeatureCard
+							icon={<UsersIcon className="h-8 w-8" />}
+							title="AI Screening"
+							description="Automatically interviewes and shortlists candidates based on job requirements"
+							svg={
+								<svg viewBox="0 0 500 200" className="w-full h-48">
+									<motion.path
+										d="M50 150 L150 50 L250 150 L350 50 L450 150"
+										stroke="currentColor"
+										strokeWidth="2"
+										fill="none"
+										initial={{ pathLength: 0 }}
+										whileInView={{ pathLength: 1 }}
+										transition={{ duration: 2 }}
+									/>
+									<motion.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+										<rect x="30" y="130" width="40" height="40" fill="currentColor" opacity="0.2" />
+										<rect x="130" y="30" width="40" height="40" fill="currentColor" opacity="0.4" />
+										<rect
+											x="230"
+											y="130"
+											width="40"
+											height="40"
+											fill="currentColor"
+											opacity="0.6"
+										/>
+										<rect x="330" y="30" width="40" height="40" fill="currentColor" opacity="0.8" />
+										<rect x="430" y="130" width="40" height="40" fill="currentColor" />
+									</motion.g>
+								</svg>
+							}
+						/>
+
+						{/* AI Chatbot */}
+						<FeatureCard
+							dim={true}
+							icon={<MessageSquareIcon className="h-8 w-8" />}
+							title="Intergrated Career Page - Coming Soon"
+							description="Integrate our career page and interview only shortlisted candidate"
+							svg={
+								<svg viewBox="0 0 500 200" className="w-full h-48">
+									<motion.path
+										d="M50 100 Q150 20 250 100 Q350 180 450 100"
+										stroke="currentColor"
+										strokeWidth="2"
+										fill="none"
+										initial={{ pathLength: 0 }}
+										whileInView={{ pathLength: 1 }}
+										transition={{ duration: 2 }}
+									/>
+									<motion.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+										<circle cx="100" cy="80" r="15" fill="currentColor" />
+										<circle cx="150" cy="80" r="15" fill="currentColor" />
+										<circle cx="200" cy="80" r="15" fill="currentColor" />
+										<circle cx="250" cy="80" r="15" fill="currentColor" />
+										<circle cx="300" cy="80" r="15" fill="currentColor" />
+										<circle cx="350" cy="80" r="15" fill="currentColor" />
+										<circle cx="400" cy="80" r="15" fill="currentColor" />
+									</motion.g>
+								</svg>
+							}
+						/>
+
+						{/*Performance Tracking */}
+						<FeatureCard
+							dim={true}
+							icon={<TrendingUpIcon className="h-8 w-8" />}
+							title="Interview Ops - Coming Soon"
+							description="Handle all your interview needs on expertRound"
+							svg={
+								<svg viewBox="0 0 500 200" className="w-full h-48">
+									<motion.path
+										d="M50 150 L100 120 L150 130 L200 100 L250 80 L300 110 L350 70 L400 90 L450 50"
+										stroke="currentColor"
+										strokeWidth="2"
+										fill="none"
+										initial={{ pathLength: 0 }}
+										whileInView={{ pathLength: 1 }}
+										transition={{ duration: 2 }}
+									/>
+									<motion.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+										<circle cx="50" cy="150" r="5" fill="currentColor" />
+										<circle cx="100" cy="120" r="5" fill="currentColor" />
+										<circle cx="150" cy="130" r="5" fill="currentColor" />
+										<circle cx="200" cy="100" r="5" fill="currentColor" />
+										<circle cx="250" cy="80" r="5" fill="currentColor" />
+										<circle cx="300" cy="110" r="5" fill="currentColor" />
+										<circle cx="350" cy="70" r="5" fill="currentColor" />
+										<circle cx="400" cy="90" r="5" fill="currentColor" />
+										<circle cx="450" cy="50" r="5" fill="currentColor" />
+									</motion.g>
+								</svg>
+							}
+						/>
 					</div>
 				</div>
 			</section>
-
-			
 
 			<footer className="border-t py-8 mt-20">
 				<div className="container text-center text-sm text-muted-foreground">
@@ -277,13 +323,6 @@ export default function HomePage() {
 		</div>
 	);
 }
-
-const ExpertRoundLogo = ({ className }: { className?: string }) => (
-	<svg viewBox="0 0 100 100" className={className}>
-		<path fill="currentColor" d="M50 15A35 35 0 1 0 50 85 35 35 0 1 0 50 15Z" />
-		<path fill="none" stroke="currentColor" strokeWidth="8" d="M30 50h40M50 30v40" />
-	</svg>
-);
 
 const AnimatedBackground = () => (
 	<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute inset-0 -z-10 overflow-hidden">
