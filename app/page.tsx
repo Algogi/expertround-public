@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ModeToggle } from './components/mode-toggle';
 import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
+import { ResponsiveContainer } from 'recharts';
 import {
 	RocketIcon,
 	FileTextIcon,
@@ -106,19 +107,16 @@ export default function HomePage() {
 						</div>
 						<div className="bg-background p-6 rounded-xl shadow-lg">
 							<h3 className="text-xl font-semibold mb-4">Monthly Hiring Costs</h3>
-							<BarChart
-								width={500}
-								height={300}
-								data={costData}
-								margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-							>
-								<XAxis dataKey="month" />
+							<ResponsiveContainer width="100%" height={300}>
+							<BarChart data={costData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+							<XAxis dataKey="month" />
 								<YAxis />
 								<Tooltip labelStyle={{ color: '#000' }} />
 								<Legend />
 								<Bar dataKey="traditional" fill="#8884d8" />
 								<Bar dataKey="expertround" fill="#82ca9d" />
 							</BarChart>
+							</ResponsiveContainer>
 						</div>
 					</div>
 				</div>
@@ -185,6 +183,7 @@ export default function HomePage() {
 				<div className="container">
 					<h2 className="text-4xl font-bold text-center mb-16">Accelerated Hiring Timeline</h2>
 					<div className="max-w-4xl mx-auto">
+					<ResponsiveContainer width="100%" height={400}>
 						<LineChart
 							width={800}
 							height={400}
@@ -199,6 +198,7 @@ export default function HomePage() {
 							<Line type="monotone" dataKey="traditional" stroke="#8884d8" strokeWidth={2} />
 							<Line type="monotone" dataKey="expertround" stroke="#82ca9d" strokeWidth={2} />
 						</LineChart>
+						</ResponsiveContainer>
 					</div>
 				</div>
 			</section>
