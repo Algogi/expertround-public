@@ -18,26 +18,16 @@ export default function BookDemoPage() {
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
       </motion.div>
-
       <nav className="fixed w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
-				<div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="text-2xl font-bold flex items-center gap-2">
-            expertRound
-          </Link>
-					<div className="flex items-center gap-4">
-						<ModeToggle />
-					</div>
-				</div>
-			</nav>
-
-      {/* <header className="fixed w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
-        <div className="container flex h-16 items-center justify-between">
-          <Link href="/" className="text-2xl font-bold">
-            expertRound
-          </Link>
-          <ModeToggle />
+        <div className="container flex h-16 items-center justify-between px-4 sm:px-6">
+        <Link href="/" className="text-xl sm:text-2xl font-bold flex items-center gap-2 sm:gap-4">
+  expertRound
+</Link>
+          <div className="flex items-center gap-2 sm:gap-4">
+            <ModeToggle />
+          </div>
         </div>
-      </header> */}
+      </nav>
 
      
       <main className="flex-1 pt-16">

@@ -37,21 +37,20 @@ export default function HomePage() {
 		<div className="flex flex-col min-h-screen">
 			{/* Navigation */}
 			<nav className="fixed w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
-				<div className="container flex h-16 items-center justify-between">
-					<h1 className="text-2xl font-bold flex items-center gap-2">
-						{/* <ExpertRoundLogo  /> */}
-						expertRound
+				<div className="container flex h-16 items-center justify-between px-4 sm:px-6">
+					<h1 className="text-xl sm:text-2xl font-bold flex items-center gap-2">
+					expertRound
 					</h1>
-					<div className="flex items-center gap-4">
-						<ModeToggle />
-						<Link href="/joinwaitlist">
-							<Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
-								Join Waitlist
-							</Button>
-						</Link>
+					<div className="flex items-center gap-2 sm:gap-4">
+					<ModeToggle />
+					<Link href="/joinwaitlist">
+						<Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base font-medium py-1.5 sm:py-2 px-4 sm:px-6 rounded-lg transition-colors">
+						Join Waitlist
+						</Button>
+					</Link>
 					</div>
 				</div>
-			</nav>
+				</nav>
 
 			{/* Hero Section */}
 			<section className="relative h-screen flex items-center justify-center">
