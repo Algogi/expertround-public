@@ -17,6 +17,8 @@ import {
 import { useRef } from 'react';
 import { FeatureCard } from './components/FeaturedCard';
 import Link from 'next/link';
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 const costData = [
 	{ month: 'Jan', traditional: 8500, expertround: 4200 },
@@ -32,20 +34,28 @@ const hiringTimelineData = [
 ];
 
 export default function HomePage() {
+	const { theme } = useTheme();
 	return (
 		<div className="flex flex-col min-h-screen">
 			{/* Navigation */}
 			<nav className="fixed w-full z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
 				<div className="container flex h-16 items-center justify-between">
-					<h1 className="text-2xl font-bold flex items-center gap-2">
-						{/* <ExpertRoundLogo  /> */}
-						expertRound
-					</h1>
+					<Image
+						src={theme === 'dark' ? '/logo_rect_white.png' : '/logo_rect.png'}
+						alt="ExpertRound Logo"
+						width={125}
+						height={150}
+					/>
 					<div className="flex items-center gap-4">
 						<ModeToggle />
-						<Link href="/joinwaitlist">
+						<Link href="https://app.expertround.com/signup">
 							<Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
-								Join Waitlist
+								Sign Up
+							</Button>
+						</Link>
+						<Link href="https://app.expertround.com/login">
+							<Button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+								Login
 							</Button>
 						</Link>
 					</div>

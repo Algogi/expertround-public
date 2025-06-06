@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: 'ExpertRound - Smart Hiring Platform',
-	description: 'AI-powered interview platform with intelligent candidate matching',
+	description: 'AI-powered interview ops platform',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
