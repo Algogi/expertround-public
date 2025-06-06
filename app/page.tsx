@@ -4,7 +4,6 @@ import { motion, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ModeToggle } from './components/mode-toggle';
 import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
-import { ResponsiveContainer } from 'recharts';
 import {
 	RocketIcon,
 	FileTextIcon,
