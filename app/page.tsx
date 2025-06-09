@@ -61,7 +61,6 @@ export default function HomePage() {
 					</div>
 				</div>
 			</nav>
-
 			{/* Hero Section */}
 			<section className="relative h-screen flex items-center justify-center">
 				<AnimatedBackground />
@@ -71,8 +70,13 @@ export default function HomePage() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.8 }}
 					>
+						<Link href="https://app.expertround.com/signup">
+							<button className="glow-on-hover">
+								Join now and unlock 100 free async, AI-driven text interviews!
+							</button>
+						</Link>
 						<h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6">
-							Smarter Tech Hiring
+							Smarter Hiring
 							<br />
 							<span className="text-3xl md:text-4xl font-normal bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
 								Powered by AI
@@ -88,7 +92,6 @@ export default function HomePage() {
 					</motion.div>
 				</div>
 			</section>
-
 			{/* Cost Savings Section */}
 			<section className="py-20 bg-muted/50">
 				<div className="container">
@@ -133,7 +136,6 @@ export default function HomePage() {
 					</div>
 				</div>
 			</section>
-
 			{/* How It Works Section */}
 			<section className="py-20">
 				<div className="container">
@@ -169,29 +171,65 @@ export default function HomePage() {
 					</div>
 				</div>
 			</section>
-
-			{/* Demo Video Section
-			<section className="py-20">
+			<section className="py-20 bg-muted/50">
 				<div className="container">
 					<motion.div
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
 						viewport={{ once: true }}
-						className="relative aspect-video bg-muted rounded-2xl shadow-xl overflow-hidden"
+						className="relative rounded-2xl flex justify-center items-stretch py-5 md:flex-col lg:flex-row"
 					>
-						<iframe
-							className="w-full h-full"
-							src="https://www.youtube.com/embed/your-demo-video-id"
-							title="expertRound Platform Demo"
-							allowFullScreen
-						/>
+						<div className="container">
+							<img src="/report.png" alt="Sample Report" />
+						</div>
+						<div className="container">
+							<h2 className="text-2xl font-semibold mb-4">Sample Interview Report</h2>
+							<p className=" mb-4">
+								At <span className="font-medium text-blue-600">ExpertRound</span>, we deliver
+								structured, AI-powered interview evaluations that help hiring teams make faster,
+								data-backed decisions. Here's a real example of a candidate assessment generated through
+								our platform.
+							</p>
+
+							<ul className="list-disc pl-5  mb-4">
+								<li>
+									<span className="font-medium">Technical Skills</span>
+								</li>
+								<li>
+									<span className="font-medium">Problem Solving</span>
+								</li>
+								<li>
+									<span className="font-medium">Communication</span>
+								</li>
+								<li>
+									<span className="font-medium">Cultural Fit</span>
+								</li>
+							</ul>
+
+							<p className=" mb-4">Each evaluation includes:</p>
+							<ul className="list-disc pl-5  mb-4">
+								<li>Clear scores and comments from expert reviewers</li>
+								<li>AI-suggested insights for quick decision-making</li>
+								<li>A detailed Q&A section to understand the candidate’s mindset</li>
+							</ul>
+
+							<div className="bg-gray-50 p-4 rounded-xl border border-gray-200 mb-4">
+								<p className="text-gray-700 italic">
+									“ExpertRound saves you hours of manual interviewing and shortlisting. Our reports
+									give your hiring team the confidence to say{' '}
+									<span className="text-green-600 font-medium">yes</span>,{' '}
+									<span className="text-red-500 font-medium">no</span>, or{' '}
+									<span className="text-blue-500 font-medium">next steps</span> — quickly and
+									consistently.”
+								</p>
+							</div>
+						</div>
 						<div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
 					</motion.div>
 				</div>
-			</section> */}
-
+			</section>
 			{/* Hiring Timeline Section */}
-			<section className="py-20 bg-muted/50">
+			<section className="py-20">
 				<div className="container">
 					<h2 className="text-4xl font-bold text-center mb-16">Accelerated Hiring Timeline</h2>
 					<div className="max-w-4xl mx-auto">
@@ -212,9 +250,8 @@ export default function HomePage() {
 					</div>
 				</div>
 			</section>
-
 			{/* Features Section */}
-			<section className="py-20">
+			<section className="py-20 bg-muted/50">
 				<div className="container">
 					<h2 className="text-4xl font-bold text-center mb-16">Platform Features</h2>
 
@@ -324,7 +361,6 @@ export default function HomePage() {
 					</div>
 				</div>
 			</section>
-
 			<footer className="border-t py-8 mt-20">
 				<div className="container text-center text-sm text-muted-foreground">
 					© 2025 expertRound.com. All rights reserved.
