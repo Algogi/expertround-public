@@ -180,7 +180,7 @@ export default function HomePage() {
 						className="relative rounded-2xl flex justify-center items-stretch py-5 md:flex-col lg:flex-row"
 					>
 						<div className="container">
-							<img src="/report.png" alt="Sample Report" />
+							<Image src="/report.png" alt="Sample Report" />
 						</div>
 						<div className="container">
 							<h2 className="text-2xl font-semibold mb-4">Sample Interview Report</h2>
