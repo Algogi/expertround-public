@@ -187,8 +187,8 @@ export default function HomePage() {
 							<p className=" mb-4">
 								At <span className="font-medium text-blue-600">ExpertRound</span>, we deliver
 								structured, AI-powered interview evaluations that help hiring teams make faster,
-								data-backed decisions. Here's a real example of a candidate assessment generated through
-								our platform.
+								data-backed decisions. Here&apos;s a real example of a candidate assessment generated
+								through our platform.
 							</p>
 
 							<ul className="list-disc pl-5  mb-4">
