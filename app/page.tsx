@@ -3,7 +3,18 @@
 import { motion, useInView } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ModeToggle } from './components/mode-toggle';
-import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis } from 'recharts';
+import {
+	Bar,
+	BarChart,
+	CartesianGrid,
+	Legend,
+	Line,
+	LineChart,
+	ResponsiveContainer,
+	Tooltip,
+	XAxis,
+	YAxis,
+} from 'recharts';
 import {
 	RocketIcon,
 	FileTextIcon,
@@ -19,6 +30,7 @@ import { FeatureCard } from './components/FeaturedCard';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import report from '../public/report.png';
 
 const costData = [
 	{ month: 'Jan', traditional: 8500, expertround: 4200 },
@@ -119,19 +131,20 @@ export default function HomePage() {
 						</div>
 						<div className="bg-background p-6 rounded-xl shadow-lg">
 							<h3 className="text-xl font-semibold mb-4">Monthly Hiring Costs</h3>
-							<BarChart
-								width={500}
-								height={300}
-								data={costData}
-								margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-							>
-								<XAxis dataKey="month" />
-								<YAxis />
-								<Tooltip labelStyle={{ color: '#000' }} />
-								<Legend />
-								<Bar dataKey="traditional" fill="#8884d8" />
-								<Bar dataKey="expertround" fill="#82ca9d" />
-							</BarChart>
+							<ResponsiveContainer width="100%" height={350}>
+								<BarChart
+									height={300}
+									data={costData}
+									margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+								>
+									<XAxis dataKey="month" />
+									<YAxis />
+									<Tooltip labelStyle={{ color: '#000' }} />
+									<Legend />
+									<Bar dataKey="traditional" fill="#8884d8" />
+									<Bar dataKey="expertround" fill="#82ca9d" />
+								</BarChart>
+							</ResponsiveContainer>
 						</div>
 					</div>
 				</div>
@@ -177,10 +190,10 @@ export default function HomePage() {
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
 						viewport={{ once: true }}
-						className="relative rounded-2xl flex justify-center items-stretch py-5 md:flex-col lg:flex-row"
+						className="relative rounded-2xl flex justify-center items-stretch py-5 flex-col sm:flex-col md:flex-col lg:flex-row"
 					>
-						<div className="container">
-							<Image src="/report.png" alt="Sample Report" />
+						<div className="container mb-3 sm:mb-3 md:mb-3 lg:mb-0">
+							<Image src={report} alt="Sample Report" />
 						</div>
 						<div className="container">
 							<h2 className="text-2xl font-semibold mb-4">Sample Interview Report</h2>
@@ -233,20 +246,21 @@ export default function HomePage() {
 				<div className="container">
 					<h2 className="text-4xl font-bold text-center mb-16">Accelerated Hiring Timeline</h2>
 					<div className="max-w-4xl mx-auto">
-						<LineChart
-							width={800}
-							height={400}
-							data={hiringTimelineData}
-							margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-						>
-							<CartesianGrid strokeDasharray="3 3" />
-							<XAxis dataKey="stage" />
-							<YAxis unit="days" />
-							<Tooltip labelStyle={{ color: '#000' }} />
-							<Legend />
-							<Line type="monotone" dataKey="traditional" stroke="#8884d8" strokeWidth={2} />
-							<Line type="monotone" dataKey="expertround" stroke="#82ca9d" strokeWidth={2} />
-						</LineChart>
+						<ResponsiveContainer width="100%" height={350}>
+							<LineChart
+								height={400}
+								data={hiringTimelineData}
+								margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+							>
+								<CartesianGrid strokeDasharray="3 3" />
+								<XAxis dataKey="stage" />
+								<YAxis unit="days" />
+								<Tooltip labelStyle={{ color: '#000' }} />
+								<Legend />
+								<Line type="monotone" dataKey="traditional" stroke="#8884d8" strokeWidth={2} />
+								<Line type="monotone" dataKey="expertround" stroke="#82ca9d" strokeWidth={2} />
+							</LineChart>
+						</ResponsiveContainer>
 					</div>
 				</div>
 			</section>
